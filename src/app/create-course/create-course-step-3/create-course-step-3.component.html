@@ -1,0 +1,94 @@
+<!-- <h3>Add Course Lessons:</h3>
+
+<div class="add-lessons-form" [formGroup]="form">
+
+    <ng-container formArrayName="lessons">
+
+        <ng-container *ngFor="let lessonForm of lessons.controls; let i=index">
+
+            <div class="lesson-form-row"  formArrayName="lessons" [formGroupName]="lessonForm">
+
+                <mat-form-field appearance="fill">
+                    <input
+                     matInput
+                      placeholder="Lesson title"
+                       formControlName="title">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-select placeholder="Lesson level" formControlName="level">
+                        <mat-option value="beginner">Beginner</mat-option>
+                        <mat-option value="intermediate">Intermediate</mat-option>
+                        <mat-option value="advanced">Advanced</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <button mat-icon-button type="button" (click)="removeLesson(lessonForm)">
+                        <mat-icon class="delete-btn">delete_forever</mat-icon>
+                    </button>
+                </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="Lesson title">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-select placeholder="Lesson level">
+        <mat-option value="beginner">Beginner</mat-option>
+        <mat-option value="intermediate">Intermediate</mat-option>
+        <mat-option value="advanced">Advanced</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-icon class="delete-btn" (click)="deleteLesson(i)">delete_forever</mat-icon>
+    </mat-form-field>
+
+  </div>
+        </ng-container>
+    </ng-container>
+
+  
+
+  <button mat-mini-fab>
+    <mat-icon class="add-course-btn" (click)="addLesson()">add</mat-icon>
+  </button>
+</div> -->
+
+
+
+
+<h3>Add Course Lessons:</h3>
+
+<div class="add-lessons-form" [formGroup]="form">
+  <ng-container formArrayName="lessons">
+    <div *ngFor="let lessonForm of lessons.controls; let i = index" [formGroupName]="i" class="lesson-form-row">
+
+      <!-- Lesson title -->
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="Lesson title" formControlName="title" />
+      </mat-form-field>
+
+      <!-- Lesson level -->
+      <mat-form-field appearance="fill">
+        <mat-select placeholder="Lesson level" formControlName="level">
+          <mat-option value="beginner">Beginner</mat-option>
+          <mat-option value="intermediate">Intermediate</mat-option>
+          <mat-option value="advanced">Advanced</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Delete button (placed outside mat-form-field) -->
+      <button mat-icon-button color="warn" type="button" (click)="deleteLesson(i)">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+
+    </div>
+  </ng-container>
+
+  <!-- Add button -->
+  <button mat-mini-fab color="primary" type="button" (click)="addLesson()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
